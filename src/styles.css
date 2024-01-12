@@ -62,6 +62,13 @@ a {
   background-color: #1abb9c;
   font-size: 15px;
   color: #f7f7f7;
+  transition: background-color 0.25s ease-in-out;
+}
+
+#search-button:hover {
+  background-color: hwb(167 2% 38%);
+  color: #f7f7f7;
+  cursor: pointer;
 }
 
 #weather-temperature {
