@@ -1,21 +1,21 @@
-function SearchCity(event) {
+function Searchquery(event) {
   event.preventDefault();
-  let city = document.querySelector("#search-input-value").value;
-  let apiKey = "0b8004f43d4a372b990e09e3241c3to7";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-  console.log(apiUrl);
-  axios.get(apiUrl).then(displayCurrentTemperature);
+  searchInput = document.querySelector("#search-input-value").value;
+  searchCity(searchInput);
 }
 
-function displayCurrentTemperature(response) {
+function searchCity(city) {
+  let apiKey = "0b8004f43d4a372b990e09e3241c3to7";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayWeatherAndCity);
+}
+
+function displayWeatherAndCity(response) {
   let temperatureElement = document.querySelector("#current-temperature");
   let temperature = Math.round(response.data.temperature.current);
-  temperatureElement = temperature;
+  temperatureElement.innerHTML = temperature;
   let cityElement = document.querySelector("h1");
   cityElement.innerHTML = response.data.city;
-
-  let searchForm = document.querySelector("weather-app-input");
-  searchForm.addEventListener("submit", SearchCity);
 }
 
 function currentDate(date) {
@@ -46,3 +46,8 @@ function currentDate(date) {
 let TodaysDate = currentDate(new Date());
 let dateElement = document.querySelector("#current-date");
 dateElement.innerHTML = TodaysDate;
+
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", Searchquery);
+
+searchCity("Johannesburg");
