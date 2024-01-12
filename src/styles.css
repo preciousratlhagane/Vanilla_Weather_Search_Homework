@@ -50,7 +50,7 @@ a {
   border: none;
   border-radius: 10px;
   padding: 20px;
-  width: 460px;
+  width: 420px;
   background-color: #f7f7f7;
   font-size: 16px;
 }
@@ -58,7 +58,7 @@ a {
 #search-button {
   border: none;
   border-radius: 10px;
-  padding: 20px;
+  padding: 20px 25px;
   background-color: #1abb9c;
   font-size: 15px;
   color: #f7f7f7;
