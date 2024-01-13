@@ -14,6 +14,10 @@ function displayWeatherConditionsAndCity(response) {
   let cityElement = document.querySelector("#current-city");
   cityElement.innerHTML = response.data.city;
 
+  let dateElement = document.querySelector("#current-date");
+  let date = new Date(response.data.time * 1000);
+  dateElement.innerHTML = currentDate(date);
+
   let weatherConditionElement = document.querySelector("#weather-condition");
   let weatherCondition = response.data.condition.description;
   weatherConditionElement.innerHTML = weatherCondition;
@@ -59,9 +63,7 @@ function currentDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
-let TodaysDate = currentDate(new Date());
-let dateElement = document.querySelector("#current-date");
-dateElement.innerHTML = TodaysDate;
+//let TodaysDate = currentDate(new Date());
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchQuery);
