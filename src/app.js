@@ -24,7 +24,7 @@ function displayWeatherConditionsAndCity(response) {
 
   let windSpeedElement = document.querySelector("#wind-condition");
   let windSpeed = response.data.wind.speed;
-  windSpeedElement.innerHTML = `${windSpeed} km/h`;
+  windSpeedElement.innerHTML = `${windSpeed}km/h`;
 
   let weatherIconElement = document.querySelector("#weather-icon");
   weatherIconElement.innerHTML = `<img src="${response.data.condition.icon_url}"/>`;
